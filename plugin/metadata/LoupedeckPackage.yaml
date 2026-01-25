@@ -1,0 +1,33 @@
+type: plugin4
+name: MxSpatialBridge
+displayName: MX SpatialBridge
+description: >
+  Turn Logitech MX Creative Console and MX Master 4 into precision spatial
+  input controllers for AR smart glasses. The MX Dial becomes a spatial scroll
+  and zoom controller. Keypad buttons trigger AR actions. MX Master 4 thumb
+  wheel navigates AR workspaces. Configure everything through the Actions Ring
+  and sync profiles to your glasses over WiFi in real time.
+version: 1.0.0
+author: MX SpatialBridge Team
+copyright: 2026 MX SpatialBridge Team
+license: MIT
+licenseUrl: https://opensource.org/licenses/MIT
+homePageUrl: https://github.com/mx-spatialbridge/mx-spatialbridge
+supportPageUrl: https://github.com/mx-spatialbridge/mx-spatialbridge/issues
+minimumLoupedeckVersion: 6.0
+
+supportedDevices:
+  - MxCreativeConsole
+  - MxMaster4
+  - LoupedeckLive
+  - LoupedeckCt
+
+pluginFileName: MxSpatialBridge.dll
+pluginFolderWin: bin/win/
+pluginFolderMac: bin/mac/
+
+capabilities:
+  RequiresAdminInstallation: false
+  RequiresAdminUninstallation: false
+  RequireApplicationCloseOnInstallWin: false
+  RequireApplicationCloseOnInstallMac: false

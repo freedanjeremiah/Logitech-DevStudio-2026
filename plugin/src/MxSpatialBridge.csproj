@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <AssemblyName>MxSpatialBridge</AssemblyName>
+    <RootNamespace>Loupedeck</RootNamespace>
+    <Platforms>x64;AnyCPU</Platforms>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <LangVersion>latest</LangVersion>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <!--
+      The Logi Actions SDK (Loupedeck.PluginSdk) is distributed via the
+      LogiPluginTool NuGet feed.  Run once to configure:
+        dotnet tool install --global LogiPluginTool
+        logiplugintool configure-nuget
+      Then restore will resolve this package automatically.
+    -->
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Logi Actions SDK — installed via LogiPluginTool -->
+    <PackageReference Include="Loupedeck.PluginSdk" Version="[6.0,)" />
+
+    <!-- mDNS/Bonjour for automatic AR glasses discovery -->
+    <PackageReference Include="Makaretu.Dns.Multicast" Version="0.27.0" />
+
+    <!-- JSON serialization for profiles and WebSocket messages -->
+    <PackageReference Include="System.Text.Json" Version="8.0.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- Embed all PNG icons as resources -->
+    <EmbeddedResource Include="Resources\**\*" />
+  </ItemGroup>
+
+</Project>
