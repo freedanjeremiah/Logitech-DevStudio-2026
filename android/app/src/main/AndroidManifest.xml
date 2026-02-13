@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Network permissions for WebSocket sync server and mDNS -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+
+    <!-- USB HID host — read events from MX peripherals over USB-C OTG -->
+    <uses-permission android:name="android.permission.USB_PERMISSION"
+        android:maxSdkVersion="30" />
+    <uses-feature android:name="android.hardware.usb.host" android:required="false" />
+
+    <!-- Foreground service for persistent HID listening and WebSocket server -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_CONNECTED_DEVICE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:name=".MxSpatialBridgeApp"
+        android:label="MX SpatialBridge"
+        android:icon="@mipmap/ic_launcher"
+        android:theme="@style/Theme.MaterialComponents.DayNight.DarkActionBar"
+        android:allowBackup="true">
+
+        <!-- Main configuration activity -->
+        <activity
+            android:name=".ui.ControlMappingActivity"
+            android:label="MX SpatialBridge"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- AR overlay activity (shown on glasses display) -->
+        <activity
+            android:name=".ui.ArOverlayActivity"
+            android:label="AR Overlay"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:exported="false" />
+
+        <!--
+            MxHidInputService — persistent foreground service.
+            Captures Bluetooth HID and USB-C OTG events from MX peripherals
+            and routes them through InputMapperEngine → ArActionDispatcher.
+        -->
+        <service
+            android:name=".hid.MxHidInputService"
+            android:label="MX Input Service"
+            android:foregroundServiceType="connectedDevice"
+            android:exported="false">
+            <!-- USB-C OTG: receive intent when MX Console connects via USB -->
+            <intent-filter>
+                <action android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED" />
+            </intent-filter>
+            <meta-data
+                android:name="android.hardware.usb.action.USB_DEVICE_ATTACHED"
+                android:resource="@xml/device_filter" />
+        </service>
+
+        <!--
+            ProfileSyncServer — WebSocket server listening on port 58432.
+            Accepts profile-update messages from the desktop plugin.
+        -->
+        <service
+            android:name=".sync.ProfileSyncServer"
+            android:label="Profile Sync Server"
+            android:foregroundServiceType="connectedDevice"
+            android:exported="false" />
+
+    </application>
+
+</manifest>
