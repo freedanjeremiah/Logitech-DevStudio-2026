@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    USB device filter for MX Creative Console (Dialpad) and MX Master 4.
+    Vendor ID 0x046D = Logitech.
+    Referenced by AndroidManifest.xml for USB_DEVICE_ATTACHED intent.
+-->
+<resources>
+    <!-- MX Creative Console Dialpad (USB-C OTG) -->
+    <usb-device vendor-id="0x046D" product-id="0xC2AB" />
+
+    <!-- MX Master 4 (USB receiver / USB-C) -->
+    <usb-device vendor-id="0x046D" product-id="0xC548" />
+
+    <!-- Logi Bolt USB receiver (used with both devices) -->
+    <usb-device vendor-id="0x046D" product-id="0xC548" />
+</resources>

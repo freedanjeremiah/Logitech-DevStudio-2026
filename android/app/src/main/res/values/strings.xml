@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MX SpatialBridge</string>
+    <string name="service_name">MX Input Service</string>
+    <string name="sync_server_name">Profile Sync Server</string>
+    <string name="status_searching">Searching for MX SpatialBridge plugin on local network…</string>
+    <string name="status_connected">Plugin connected — AR input active</string>
+    <string name="status_disconnected">Plugin disconnected — tap to rescan</string>
+    <string name="label_active_profile">Active Profile</string>
+    <string name="label_mappings">Input Mappings</string>
+    <string name="btn_start">Start</string>
+    <string name="btn_stop">Stop</string>
+</resources>
