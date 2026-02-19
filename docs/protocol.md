@@ -56,7 +56,7 @@ Drive the AR interface directly from the desktop plugin or Actions Ring bubble.
   "profile": { ...SpatialProfile... }
 }
 ```
-Hot-reloads the input mapping on the glasses with zero downtime.
+Hot-reloads the input mapping on the glasses with zero downtime. The `profile` payload must match the shared SpatialProfile schema.
 
 ---
 
@@ -76,8 +76,7 @@ Hot-reloads the input mapping on the glasses with zero downtime.
   "app":     "browser"
 }
 ```
-Sent on connect and whenever glasses state changes. Used to update the
-Actions Ring status bubble.
+Sent on connect and whenever glasses state changes. All fields are optional except `type`. Used to update the Actions Ring status bubble.
 
 ### ack
 ```json
