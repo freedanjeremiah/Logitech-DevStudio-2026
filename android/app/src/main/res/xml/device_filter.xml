@@ -5,6 +5,7 @@
     Referenced by AndroidManifest.xml for USB_DEVICE_ATTACHED intent.
 -->
 <resources>
+    <!-- Restrict USB attachment to Logitech MX devices only. -->
     <!-- MX Creative Console Dialpad (USB-C OTG) -->
     <usb-device vendor-id="0x046D" product-id="0xC2AB" />
 
