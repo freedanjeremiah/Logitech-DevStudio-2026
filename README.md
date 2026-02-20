@@ -164,8 +164,8 @@ Launch **MX SpatialBridge** on the glasses and note the IP address shown.
 
 1. Glasses app starts `ProfileSyncServer` — WebSocket on port `58432`
 2. Glasses app starts `NsdAdvertiser` — announces `_mxspatialbridge._tcp` via mDNS
-3. Desktop plugin starts `GlassesDiscovery` — scans for `_mxspatialbridge._tcp`
-4. Plugin finds glasses → opens WebSocket connection
+3. Desktop plugin starts `GlassesDiscovery` — scans for `_mxspatialbridge._tcp` (mDNS port 5353)
+4. Plugin finds glasses → opens WebSocket connection to port 58432 (10s timeout, 30s keep-alive)
 5. Glasses sends initial `status` message
 6. Plugin pushes active `SpatialProfile` via `profile-update`
 7. Every subsequent MX input event streams an `action` message to the glasses

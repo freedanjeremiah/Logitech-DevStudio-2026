@@ -55,6 +55,12 @@ namespace Loupedeck
             _plugin = plugin;
         }
 
+        /// <summary>Connection timeout when opening the WebSocket (seconds).</summary>
+        public const Int32 ConnectTimeoutSeconds = 10;
+
+        /// <summary>Keep-alive ping interval; helps detect dead connections.</summary>
+        public static readonly TimeSpan KeepAliveInterval = TimeSpan.FromSeconds(30);
+
         // ── Connection ────────────────────────────────────────────────────────
 
         public async Task ConnectAsync(String address, Int32 port)
@@ -69,9 +75,13 @@ namespace Loupedeck
                 _cts = new CancellationTokenSource();
                 _ws  = new ClientWebSocket();
                 _ws.Options.SetRequestHeader("X-Client", "MxSpatialBridgePlugin/1.0");
+                _ws.Options.KeepAliveInterval = KeepAliveInterval;
 
                 var uri = new Uri($"ws://{address}:{port}/sync");
-                await _ws.ConnectAsync(uri, _cts.Token);
+                using (var connectCts = new CancellationTokenSource(TimeSpan.FromSeconds(ConnectTimeoutSeconds)))
+                {
+                    await _ws.ConnectAsync(uri, connectCts.Token);
+                }
 
                 Console.WriteLine($"[MxSpatialBridge] WebSocket connected to {uri}");
 
