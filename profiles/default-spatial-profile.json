@@ -1,20 +1,20 @@
 {
   "name": "Default AR Profile",
   "version": "1.0",
-  "scrollSensitivity": 1.0,
+  "scrollSensitivity": 1,
   "zoomStep": 5,
   "defaultBrightness": 70,
   "mappings": {
-    "dial-cw":          { "action": "scroll",        "parameters": { "delta":  1, "axis": "vertical"   } },
-    "dial-ccw":         { "action": "scroll",        "parameters": { "delta": -1, "axis": "vertical"   } },
-    "dial-press":       { "action": "select"                                                              },
-    "btn-0":            { "action": "back"                                                                },
-    "btn-1":            { "action": "switch-layer",  "parameters": { "target": "next"                 } },
-    "btn-2":            { "action": "launch-app",    "parameters": { "appId":  "browser"              } },
-    "btn-3":            { "action": "launch-app",    "parameters": { "appId":  "maps"                 } },
-    "thumb-wheel-up":   { "action": "workspace-next"                                                     },
-    "thumb-wheel-dn":   { "action": "workspace-prev"                                                     },
-    "gesture-left":     { "action": "scroll",        "parameters": { "delta": -3, "axis": "horizontal" } },
-    "gesture-right":    { "action": "scroll",        "parameters": { "delta":  3, "axis": "horizontal" } }
+    "dial-cw": { "action": "scroll", "parameters": { "delta": 1, "axis": "vertical" } },
+    "dial-ccw": { "action": "scroll", "parameters": { "delta": -1, "axis": "vertical" } },
+    "dial-press": { "action": "select" },
+    "btn-0": { "action": "back" },
+    "btn-1": { "action": "switch-layer", "parameters": { "target": "next" } },
+    "btn-2": { "action": "launch-app", "parameters": { "appId": "browser" } },
+    "btn-3": { "action": "launch-app", "parameters": { "appId": "maps" } },
+    "thumb-wheel-up": { "action": "workspace-next" },
+    "thumb-wheel-dn": { "action": "workspace-prev" },
+    "gesture-left": { "action": "scroll", "parameters": { "delta": -3, "axis": "horizontal" } },
+    "gesture-right": { "action": "scroll", "parameters": { "delta": 3, "axis": "horizontal" } }
   }
 }

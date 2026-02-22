@@ -189,7 +189,7 @@ MX SpatialBridge registers dedicated bubbles in the **Actions Ring** overlay:
 | AR Brightness   | Adjustment | Dial rotation → display brightness        |
 
 The **AR Connect** bubble changes colour (green = connected, grey = searching),
-giving users real-time connection feedback from within the Actions Ring.
+giving users real-time connection feedback from within the Actions Ring. Bubbles appear automatically when the plugin is loaded in Options+.
 
 ---
 

@@ -48,7 +48,8 @@
             android:textColor="#CCCCCC"
             android:textSize="13sp"
             android:fontFamily="monospace"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:contentDescription="@string/content_description_connection_status" />
 
         <!-- IP / Port -->
         <TextView
@@ -70,7 +71,8 @@
             android:textColor="#00FF88"
             android:textSize="14sp"
             android:fontFamily="monospace"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:contentDescription="@string/content_description_ip_port" />
 
         <!-- Active Profile -->
         <TextView
@@ -92,7 +94,8 @@
             android:textColor="#CCCCCC"
             android:textSize="12sp"
             android:fontFamily="monospace"
-            android:layout_marginBottom="20dp" />
+            android:layout_marginBottom="20dp"
+            android:contentDescription="@string/content_description_active_profile" />
 
         <!-- Control button -->
         <Button
@@ -102,7 +105,8 @@
             android:text="Start Sync Server"
             android:backgroundTint="#0070D2"
             android:textColor="#FFFFFF"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:contentDescription="@string/content_description_start_stop" />
 
     </LinearLayout>
 </ScrollView>

@@ -10,4 +10,8 @@
     <string name="label_mappings">Input Mappings</string>
     <string name="btn_start">Start</string>
     <string name="btn_stop">Stop</string>
+    <string name="content_description_connection_status">Connection status for MX SpatialBridge</string>
+    <string name="content_description_ip_port">IP address and port for desktop plugin connection</string>
+    <string name="content_description_active_profile">Active profile and input mappings</string>
+    <string name="content_description_start_stop">Start or stop the sync server</string>
 </resources>
