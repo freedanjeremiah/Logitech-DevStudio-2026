@@ -49,6 +49,8 @@ Drive the AR interface directly from the desktop plugin or Actions Ring bubble.
 | `workspace-next` | —                                   | Move to next AR workspace          |
 | `workspace-prev` | —                                   | Move to previous AR workspace      |
 
+Example: `{ "type": "action", "action": "scroll", "params": { "delta": 2, "axis": "vertical" } }` sends two scroll steps down.
+
 ### profile-update
 ```json
 {
@@ -76,7 +78,7 @@ Hot-reloads the input mapping on the glasses with zero downtime. The `profile` p
   "app":     "browser"
 }
 ```
-Sent on connect and whenever glasses state changes. All fields are optional except `type`. Used to update the Actions Ring status bubble.
+Sent on connect and whenever glasses state changes. `battery` (0–100) is read from the device; `layer` and `app` are optional. All fields except `type` are optional. Used to update the Actions Ring status bubble.
 
 ### ack
 ```json

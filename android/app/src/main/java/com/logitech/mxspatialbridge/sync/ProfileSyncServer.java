@@ -4,6 +4,8 @@ import android.app.Notification;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.os.BatteryManager;
 import android.os.IBinder;
 
 import androidx.annotation.Nullable;
@@ -101,15 +103,27 @@ public class ProfileSyncServer extends Service {
         public void onOpen(WebSocket conn, ClientHandshake handshake) {
             android.util.Log.i("MxSpatialBridge", "Plugin connected: " + conn.getRemoteSocketAddress());
 
-            // Immediately send current profile state so plugin knows glasses are alive
+            // Immediately send current status so plugin knows glasses are alive (battery from device)
             InputMapperEngine.SpatialProfile profile =
                     MxSpatialBridgeApp.getInstance().getMapperEngine().getActiveProfile();
+            int batteryPct = getBatteryLevel();
             Map<String, Object> statusMsg = new HashMap<>();
             statusMsg.put("type",    "status");
-            statusMsg.put("battery", 100);    // TODO: read actual battery from glasses hardware API
+            statusMsg.put("battery", batteryPct);
             statusMsg.put("layer",   0);
             statusMsg.put("app",     "home");
             conn.send(mGson.toJson(statusMsg));
+        }
+
+        /** Read current battery level (0–100) from the device for status messages. */
+        private int getBatteryLevel() {
+            Intent batteryIntent = ProfileSyncServer.this.getApplicationContext().registerReceiver(
+                    null, new IntentFilter(Intent.ACTION_BATTERY_CHANGED));
+            if (batteryIntent == null) return 100;
+            int level = batteryIntent.getIntExtra(BatteryManager.EXTRA_LEVEL, -1);
+            int scale = batteryIntent.getIntExtra(BatteryManager.EXTRA_SCALE, 100);
+            if (level < 0 || scale <= 0) return 100;
+            return (level * 100) / scale;
         }
 
         @Override

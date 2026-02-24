@@ -211,7 +211,7 @@ giving users real-time connection feedback from within the Actions Ring. Bubbles
 
 **Android:** Java · Android SDK 34 · Java-WebSocket · Gson · Android NSD · USB HID host · Bluetooth HID
 
-**Protocol:** WebSocket · mDNS/Bonjour · JSON
+**Protocol:** WebSocket · mDNS/Bonjour · JSON (local WiFi only)
 
 **Hardware:** MX Creative Console · MX Master 4 · Android waveguide AR glasses
 
