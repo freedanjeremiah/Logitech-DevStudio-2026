@@ -219,4 +219,4 @@ giving users real-time connection feedback from within the Actions Ring. Bubbles
 
 ## Licence
 
-MIT — see [LICENSE](LICENSE)
+MIT — see [LICENSE](LICENSE). Built for Logitech DevStudio 2026.
